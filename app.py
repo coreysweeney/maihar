@@ -247,7 +247,7 @@ app.layout = html.Div(
                             clearable=False,
                             className="dropdown",
                         ),
-                    ]
+                    ],
                 ),
                 html.Div(
                     children=[
