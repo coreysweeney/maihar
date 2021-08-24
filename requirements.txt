@@ -3,7 +3,6 @@ dash_table
 pandas
 numpy
 ccxt
-os
 time
 csv
 dash.dependencies
