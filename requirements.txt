@@ -3,6 +3,5 @@ dash_table
 pandas
 numpy
 ccxt
-dash.dependencies
 datetime
 gunicorn
