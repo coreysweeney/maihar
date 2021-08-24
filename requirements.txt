@@ -1,5 +1,6 @@
 dash
 dash_table
+dash_daq
 pandas
 numpy
 ccxt
