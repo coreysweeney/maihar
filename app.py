@@ -245,9 +245,9 @@ app.layout = html.Div(
                             ],
                             value="binance",
                             clearable=False,
-                            className="dropdown",
+                            className="drop"
                         ),
-                    ],
+                    ]
                 ),
                 html.Div(
                     children=[
@@ -261,7 +261,7 @@ app.layout = html.Div(
                             value="BTC/USDT",
                             clearable=False,
                             searchable=False,
-                            className="dropdown",
+                            className="drop"
                         ),
                     ],
                 ),
@@ -292,7 +292,7 @@ app.layout = html.Div(
                             value="RSI",
                             clearable=False,
                             searchable=False,
-                            className="dropdown",
+                            className="drop"
                         ),
                     ],
                 ),

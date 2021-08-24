@@ -56,17 +56,6 @@ body {
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
 }
 
-.submenu {
-    height: 60px;
-    width: 600px;
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 16px;
-    margin: 20px auto 0 auto;
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
-}
-
 .Select-control {
     width: 256px;
     height: 48px;
@@ -84,6 +73,17 @@ body {
     margin-bottom: 6px;
     font-weight: bold;
     color: #555;
+}
+
+.submenu {
+    height: 60px;
+    width: 600px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 16px;
+    margin: 20px auto 0 auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
 }
 
 .submenu-title {
@@ -149,3 +149,8 @@ input[type="button"].button-primary:focus {
   color: #FFF;
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
+
+.drop {
+    width: 256px;
+    height: 62px;
+}
