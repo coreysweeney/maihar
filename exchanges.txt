@@ -1,0 +1,1 @@
+binance,bitcoincom,bitforex,digifinex,hitbtc,lbank,okex,upbit,zb
