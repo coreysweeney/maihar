@@ -45,6 +45,19 @@ body {
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
 }
 
+.smallcard {
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
+    max-width: 512px;
+    margin: 20px auto 0 auto;
+}
+
+.sidebyside {
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
+    display: inline-block
+}
+
 .menu {
     height: 112px;
     width: 1200px;
@@ -56,16 +69,22 @@ body {
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
 }
 
-.Select-control {
+.dropdown .Select-control {
+    width: 256px;
+    height: 48px;
+	font-size: 20px;
+}
+
+.dropdown .Select-input {
     width: 256px;
     height: 48px;
 }
 
-.Select--single > .Select-control .Select-value, .Select-placeholder {
+.dropdown .Select--single > .Select-control .Select-value, .Select-placeholder {
     line-height: 48px;
 }
 
-.Select--multi .Select-value-label {
+.dropdown .Select--multi .Select-value-label {
     line-height: 32px;
 }
 
@@ -93,6 +112,39 @@ body {
     color: #555;
 }
 
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+._dash-loading-callback {
+  font-family: sans-serif;
+  padding-top: 50px;
+  color: rgb(90, 90, 90);
+
+  /* The banner */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: progress;
+
+  opacity: 0;
+  background-color: rgb(250, 250, 250);
+  /* Delay animation by 1s to prevent flashing 
+     and smoothly transition the animation over 0.5s 
+   */
+  -moz-animation: fadein 0.5s ease-in 1s forwards; /* Firefox */
+  -webkit-animation: fadein 0.5s ease-in 1s forwards; /* Safari and Chrome */
+  -o-animation: fadein 0.5s ease-in 1s forwards; /* Opera */
+    animation: fadein 0.5s ease-in 1s forwards;
+}
 .button,
 button,
 input[type="submit"],
@@ -149,8 +201,3 @@ input[type="button"].button-primary:focus {
   color: #FFF;
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
-
-.drop {
-    width: 256px;
-    height: 62px;
-}

@@ -1,1 +1,1 @@
-PERPETUAL,RSI
+arbitragepairs.arbitragepairs,rsitrade.strat1,rsitrade.strat2,rsitrade.strat3,rsitrade.strat4

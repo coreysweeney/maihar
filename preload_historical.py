@@ -99,7 +99,7 @@ if __name__ == '__main__':
             if coin in symbol:
                 try:
                     # for most exchanges max data points is 1000, can use since argument in a loop to get more historical data
-                    since = exchange.milliseconds () - 86400000*7 # -1000 day from now
+                    since = exchange.milliseconds () - 86400000*7 # -7 day from now
                     # alternatively, fetch from a certain starting datetime
                     # since = exchange.parse8601('2018-01-01T00:00:00Z')
                     data = exchange.fetch_ohlcv(coin, t_frame, since, limit= 1000) 
@@ -114,4 +114,4 @@ if __name__ == '__main__':
     
     df.index = df.index/1000 #Timestamp is 1000 times bigger than it should be in this case
     df['Date'] = pd.to_datetime(df.index,unit='s')
-    df.to_csv('test.csv')
+    df.to_csv('preload.csv')

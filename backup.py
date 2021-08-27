@@ -34,7 +34,6 @@ temp_list.close()
 s = (2,2)
 data_two = np.zeros(s)
 data_two = pd.DataFrame(data_two)
-data_two.columns = ['name', 'value']
 
 ## START SERVER
 app = DashProxy(prevent_initial_callbacks=True, transforms=[MultiplexerTransform()])
@@ -173,17 +172,6 @@ app.layout = html.Div(
                     ),
                     className="card",
                 ),
-                html.Div(
-                    children=dash_table.DataTable(
-                        id='table_two',
-                        columns=[{"name": i, "id": i} for i in data_two.columns],
-                        data=data_two.to_dict('records'),
-                        page_size=10,
-                        sort_action="native",
-                        sort_mode="multi"
-                        ),
-                    className="smallcard",
-                    ),
             ],
             className="wrapper",
         ),
@@ -239,7 +227,7 @@ def update_charts(exchange, Symbol, start_date, end_date):
             },
             "xaxis": {"fixedrange": True},
             "yaxis": {"tickprefix": "$", "fixedrange": True},
-            "colorway": ["#3A61D2"],
+            "colorway": ["#17B897"],
         },
     }
 
@@ -275,16 +263,15 @@ def download_historical(n_clicks, data):
     return dcc.send_data_frame(df.to_csv, "crypto_data.csv")
 
 @app.callback(
-    Output('table_two', 'columns'),
-    Output("table_two", "data"),
+    Output('table', 'columns'),
+    Output("table", "data"),
     Output("volume-chart", "figure"),
     Input("btn_csv_sript", "n_clicks"),
     State('table', 'data'),
     State('script-filter', 'value'),
-    State('volume-chart', 'figure'),
     prevent_initial_call=True,
 )
-def run_script(n_clicks, input_data,scriptname,figure):
+def run_script(n_clicks, input_data,scriptname):
     function_name = scriptname
     input_data = pd.DataFrame.from_dict(input_data)
     result = eval(function_name + '(input_data)')
@@ -292,11 +279,7 @@ def run_script(n_clicks, input_data,scriptname,figure):
     local_data.index.name = None
     return_columns=[{"name": i, "id": i} for i in local_data.columns]
     return_data=local_data.to_dict('records')
-    if result[1] != 0:
-        return_chart = result[1]
-    else:
-        return_chart = figure
-    return return_columns,return_data,return_chart
+    return return_columns,return_data,result[1]
 
 if __name__ == "__main__":
     app.run_server(debug=True)
